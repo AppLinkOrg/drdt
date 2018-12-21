@@ -1,0 +1,20 @@
+.top{
+
+  background-color: #4c556e;
+  height: 240rpx;
+}
+.avatar{
+      overflow:hidden;
+    height:100rpx;
+    width: 100rpx;
+    border:3px solid white;
+    border-radius: 50%;
+}
+.wode{
+
+position: fixed;
+bottom:0;
+right:0;
+
+
+}

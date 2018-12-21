@@ -1,0 +1,52 @@
+<!-- 学科分类 -->
+<view class="flex-row  flex-center text-center">
+  <block wx:for="{{disciplinecat}}" wx:key="k" wx:for-index="idx">
+    <view bindtap='gotoCat' class="flex-1  {{xuanzhon==item.id?'fenlei':'flmr'}} " id='{{item.id}}'>{{item.name}}</view>
+
+
+
+
+  </block>
+</view>
+<!-- 分类课程 -->
+<view class="flex-row flex-center text-center">
+  <block wx:for="{{disciplinecat}}" wx:key="k" wx:for-index="idx" wx:for-item="items">
+    <view class="flex-1   " id='{{item.id}}'>
+      <block wx:for="{{catcourselist}}" wx:key="k" wx:for-index="idx" wx:for-item="item">
+        <view class="flex-1 fenlei " bindtap='kechenxz' id="{{item.id}}" style='margin-top:5rpx' wx:if="{{items.id==item.disciplinecat_id}}">
+          {{item.name}}
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+
+<!-- 课程列表 -->
+<block wx:for="{{courselist}}" wx:key="k" wx:for-item="items">
+
+  <view id="{{items.id}}" bindtap='kechenzj' class="  kc  flex-row flex-center">
+    <view class="txt-bold flex-1 flex-center">《{{items.name}}》</view>
+    <view class="h5">0/30</view>
+    <image  class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>
+  </view>
+  <block wx:if="{{items.id==item.course_id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="item">
+    <view   class="padding-20 flex-row flex-center" style='border-bottom:1px solid white'>
+      <view class="h5 txt-bold">{{item.zhangjiehao}}</view>
+      <view class="margin-left-10 h5 txt-bold flex-1 ">{{item.name}}</view>
+      <view class="h5">0/6</view>
+      <image id="{{items.id}}" bindtap='kechenzj' class='icon-25' src='{{uploadpath}}resource/{{res.	youce}}'></image>
+
+    </view>
+
+
+  </block>
+</block>
+
+<!-- 没有课程时 -->
+<block wx:if="{{courselist.length==0&&catcourse_id>0}}">
+  <view class="padding-top-70 text-center">
+
+    暂时没有课程,敬请期待
+
+  </view>
+</block>

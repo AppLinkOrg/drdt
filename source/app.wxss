@@ -1,6 +1,9 @@
 /**app.wxss**/
 @import "wxParse/wxParse.wxss";
+.ceshi{
 
+  border:1px solid red
+}
 page{
   background: white;
 }
@@ -270,6 +273,12 @@ button[disabled][type=primary] {
 .padding-top-5{
   padding-top: 5rpx;
 }
+.padding-top{
+  padding-top: 40rpx;
+}
+.padding-bottom{
+  padding-bottom: 40rpx;
+}
 .padding-top-10{
   padding-top: 10rpx;
 }
@@ -363,6 +372,7 @@ button[disabled][type=primary] {
 .margin-left-5{
   margin-left:5rpx;
 }
+
 .margin-left-10{
   margin-left:10rpx;
 }

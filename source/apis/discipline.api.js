@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/inst.api';
+import { InstApi } from '../../apis/discipline.api';
 
-var instApi=new InstApi();
+var disciplineApi=new DisciplineApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class InstApi{
+export class DisciplineApi{
 
 
-    disciplinelist(json, callback, showLoading = true) {
+    catcourse(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/disciplinelist',
+            url: ApiConfig.GetApiUrl() + 'discipline/catcourse',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class InstApi{
         })
     }
 
-    indexbanner(json, callback, showLoading = true) {
+    course(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/indexbanner',
+            url: ApiConfig.GetApiUrl() + 'discipline/course',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class InstApi{
         })
     }
 
-    info(json, callback, showLoading = true) {
+    disciplinecat(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/info',
+            url: ApiConfig.GetApiUrl() + 'discipline/disciplinecat',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -105,7 +105,7 @@ export class InstApi{
         })
     }
 
-    resources(json, callback, showLoading = true) {
+    coursesctlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -114,7 +114,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/resources',
+            url: ApiConfig.GetApiUrl() + 'discipline/coursesctlist',
             data: json,
             method: 'POST',
             dataType: 'json',

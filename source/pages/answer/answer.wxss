@@ -1,0 +1,26 @@
+page{
+
+background-color: #fafafa;
+
+}
+.flmr{
+
+ color: #adaaaf;
+ padding-top:40rpx;
+ padding-bottom:40rpx;
+
+}
+.fenlei{
+
+background-color:#4c556e;
+color: white;
+ padding-top:40rpx;
+ padding-bottom:40rpx;
+}
+.kc{
+background-color: white;
+border-bottom:1px solid #fafafa;
+padding:20rpx;
+padding-top:30rpx;
+padding-bottom:30rpx;
+}

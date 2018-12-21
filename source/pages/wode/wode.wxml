@@ -1,0 +1,20 @@
+<view class="flex-wrap text-center flex-center top">
+
+  <view>
+    <image class=' icon-40  avatar   margin-top' src="{{UserInfo.avatarUrl}}"> </image>
+  </view>
+  <view class="txt-white">{{UserInfo.nickName}}</view>
+</view>
+
+ <navigator url="/pages/payrecord/payrecord"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
+    <view class="margin-20">
+      <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.fenxian}}'></image>
+    </view>
+    <view class="margin-20 margin-top txt-black flex-1">分享小程序</view>
+     <view class="margin-20">
+      <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.youce}}'></image>
+    </view>
+  </navigator>
+
+
+  <navigator url="/pages/home/home" class="wode padding-20"><image class='icon-30' src='{{uploadpath}}resource/{{res.huijia}}'></image></navigator>

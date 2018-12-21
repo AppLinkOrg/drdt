@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/answer/answer",
+    
+    "pages/wode/wode",
     "pages/auth/auth"
   ],
   "window":{

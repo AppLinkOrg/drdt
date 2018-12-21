@@ -1,1 +1,88 @@
-home
+<swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:300rpx;'>
+  <swiper-item wx:key="k" wx:for="{{indexbanner}}" wx:key="k">
+    <view>
+      <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:300rpx;' mode="aspectFill"></image>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="padding-20 ">
+
+  <view class="block1 ">
+    <view class="flex-row flex-center text-center  margin-top-20">
+
+      <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
+        <view class="flex-1"></view>
+        <view bindtap='gotoCat' class="flex-2  txt-blod   {{xuanzhon==idx?'xuanzhon':'weixuanzhon'}} " id="{{idx}}">{{item.name}}</view>
+      </block>
+      <view class="flex-1"></view>
+    </view>
+
+
+    <view class="flex-row flex-center text-center  margin-top">
+
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">0.09%</view>
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">1</view>
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">1118</view>
+
+      <view class="flex-1"></view>
+    </view>
+    <view class="flex-row flex-center text-center  ">
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">正确率</view>
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">已答题</view>
+      <view class="flex-1"></view>
+      <view class="flex-2 txt-white">总题数</view>
+      <view class="flex-1"></view>
+    </view>
+
+
+
+  </view>
+  <view class="block2 flex-row flex-center text-center">
+    <view class=" flex-1 flex-row flex-column">
+      <image class='icon-30' src='{{uploadpath}}resource/{{res.cuoti}}'></image>
+      <view class="txt-white margin-top-5">错题库</view>
+
+    </view>
+
+    <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
+      <image wx:if="{{idx==0}}" class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
+      <image wx:if="{{idx!=0}}" class='icon' src='{{uploadpath}}resource/{{res.fenge}}'></image>
+      <view class=" flex-1 flex-row flex-column">
+        <image class='icon-30' src='{{uploadpath}}discipline/{{item.disciplineimg}}'></image>
+        <view class="txt-white margin-top-5">{{item.summary}}</view>
+
+      </view>
+    </block>
+
+
+
+  </view>
+  <view class="block2 flex-row flex-center text-center">
+    <view class=" flex-1 flex-row flex-column">
+      <image class='icon-30' src='{{uploadpath}}resource/{{res.dati}}'></image>
+      <view class="txt-white margin-top-5">答题</view>
+
+    </view>
+    <block  wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
+      <image wx:if="{{idx==0}}" class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
+      <image wx:if="{{idx!=0}}" class='icon' src='{{uploadpath}}resource/{{res.fenge}}'></image>
+      <view id="{{item.id}}"  bindtap="dati" class=" flex-1 flex-row flex-column">
+        <image class='icon-30' src='{{uploadpath}}discipline/{{item.disciplineimg}}'></image>
+        <view class="txt-white margin-top-5">{{item.summary}}</view>
+
+      </view>
+    </block>
+
+
+  </view>
+
+
+</view>
+<navigator url="/pages/wode/wode" class="wode padding-20">
+  <image class='icon-30' src='{{uploadpath}}resource/{{res.wode}}'></image>
+</navigator>
