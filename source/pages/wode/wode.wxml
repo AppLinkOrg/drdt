@@ -8,6 +8,7 @@
 
  <navigator url="/pages/payrecord/payrecord"  class="flex-row" style='border-bottom:1px solid #E5E5E5'>
     <view class="margin-20">
+    <button class=' clear-contact  ' style='width:750rpx;height:100rpx;' open-type='share' ></button>
       <image class='icon-30 margin-left-10 margin-top-5' src='{{uploadpath}}resource/{{res.fenxian}}'></image>
     </view>
     <view class="margin-20 margin-top txt-black flex-1">分享小程序</view>
@@ -17,4 +18,4 @@
   </navigator>
 
 
-  <navigator url="/pages/home/home" class="wode padding-20"><image class='icon-30' src='{{uploadpath}}resource/{{res.huijia}}'></image></navigator>
+  <navigator hover-class="none" class="wode padding-20"><image class='icon-30' src='{{uploadpath}}resource/{{res.huijia}}'></image></navigator>

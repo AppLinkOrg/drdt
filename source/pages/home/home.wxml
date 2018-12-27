@@ -1,7 +1,7 @@
 <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:300rpx;'>
   <swiper-item wx:key="k" wx:for="{{indexbanner}}" wx:key="k">
     <view>
-      <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:300rpx;' mode="aspectFill"></image>
+      <image bindtap='viewPhoto' id="{{uploadpath}}indexbanner/{{item.img}}" src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:300rpx;' mode="aspectFill"></image>
     </view>
   </swiper-item>
 </swiper>
@@ -17,15 +17,15 @@
       <view class="flex-1"></view>
     </view>
 
-
-    <view class="flex-row flex-center text-center  margin-top">
+   <view wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx" wx:if="{{idx==xuanzhon}}">
+    <view  class="flex-row flex-center text-center  margin-top">
 
       <view class="flex-1"></view>
       <view class="flex-2 txt-white">0.09%</view>
       <view class="flex-1"></view>
-      <view class="flex-2 txt-white">1</view>
+      <view class="flex-2 txt-white">{{item.count1}}</view>
       <view class="flex-1"></view>
-      <view class="flex-2 txt-white">1118</view>
+      <view class="flex-2 txt-white">{{item.count}}</view>
 
       <view class="flex-1"></view>
     </view>
@@ -38,7 +38,7 @@
       <view class="flex-2 txt-white">总题数</view>
       <view class="flex-1"></view>
     </view>
-
+</view>
 
 
   </view>
@@ -52,7 +52,7 @@
     <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
       <image wx:if="{{idx==0}}" class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
       <image wx:if="{{idx!=0}}" class='icon' src='{{uploadpath}}resource/{{res.fenge}}'></image>
-      <view class=" flex-1 flex-row flex-column">
+      <view  id="{{item.id}}" bindtap="cuoti"    class=" flex-1 flex-row flex-column">
         <image class='icon-30' src='{{uploadpath}}discipline/{{item.disciplineimg}}'></image>
         <view class="txt-white margin-top-5">{{item.summary}}</view>
 
@@ -83,6 +83,7 @@
 
 
 </view>
-<navigator url="/pages/wode/wode" class="wode padding-20">
+<view class="padding-20 guanggao" style='width：200rpx;height:200rpx'><official-account></official-account></view>
+<navigator hover-class="none" url="/pages/wode/wode" class="wode padding-20">
   <image class='icon-30' src='{{uploadpath}}resource/{{res.wode}}'></image>
 </navigator>

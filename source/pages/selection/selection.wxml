@@ -1,0 +1,32 @@
+<view class="bg padding-20 flex-row flex-center " style='height:80rpx'>
+  <view class="flex-1"></view>
+  <view class="txt-block txt-bold">{{disciplinetm[0].coursesct_zhangjiehao}} {{disciplinetm[0].coursesct_name}}</view>
+  <view class="flex-1 txt-bold text-right" style='color:#4c556e' bindtap='chonzuo'>重做</view>
+
+</view>
+
+<view class="flex-center " style='border:width:100%;display:flex;flex-wrap: wrap; '>
+
+  <!-- <navigator   url="/pages/questions/questions?id={{item.id}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" wx:for="{{disciplinetm}}" wx:key="k" class=" sc text-center  flex-center flex-row">
+    <view class="flex-1"></view>{{item.seq}}
+    <view class="flex-1"></view>
+  </navigator> -->
+  <block wx:for="{{disciplinetm}}" wx:key="k">
+    <navigator wx:if="{{item.isanwser!=''}}" url="/pages/questions/questions?id={{item.seq}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" class=" {{item.anwser==item.isanwser?'zq':'cw'}} text-center  flex-center flex-row">
+
+      <view class="flex-1"></view>{{item.seq}}
+      <view class="flex-1"></view>
+
+    </navigator>
+    <navigator wx:if="{{item.isanwser==''}}" url="/pages/questions/questions?id={{item.seq}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" class="sc  text-center  flex-center flex-row">
+
+
+      <view class="flex-1"></view>{{item.seq}}
+      <view class="flex-1"></view>
+
+    </navigator>
+</block>
+
+
+
+</view>

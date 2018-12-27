@@ -1,14 +1,20 @@
 {
-  "pages":[
-    "pages/home/home",
-    "pages/answer/answer",
+  "pages": [
     
+    "pages/home/home",
+    "pages/error/error",
+    "pages/questions/questions",
+    
+    
+    
+    
+    "pages/selection/selection",
+    "pages/answer/answer",
     "pages/wode/wode",
     "pages/auth/auth"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "enablePullDownRefresh": true,
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "white",
     "navigationBarTextStyle": "black"
   }

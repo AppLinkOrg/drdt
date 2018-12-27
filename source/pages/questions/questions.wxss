@@ -1,0 +1,40 @@
+page{
+
+background-color: #e5e5e5;
+
+}
+.bg{
+  background-color: white;
+}
+.gd{
+
+height: calc( 100vh - 170rpx )
+
+}
+.tjdn{
+padding-top:15rpx;
+padding-bottom:15rpx;
+padding-left:40rpx;
+padding-right:40rpx;
+border:1px solid black;
+border-radius: 10rpx;
+}
+
+radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 35rpx;
+   height: 35rpx;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+
+.guangao{
+  position:fixed;
+  bottom:0;
+  background-color: #e5e5e5;
+}
+.zjguanggao{
+  background-color: #e5e5e5;
+
+}
+

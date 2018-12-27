@@ -1,0 +1,46 @@
+page{
+  background-color: #f8f8f8;
+}
+.bg{
+
+  background-color: white;
+}
+
+.sc{
+ margin-left:20rpx;
+ margin-top:20rpx;
+height:120rpx;
+width: 17%;
+background-color: #e5e5e5;
+
+border-radius: 10rpx;
+background-attachment: fixed;
+background-size: 100% auto; 
+background-repeat: no-repeat; 
+
+
+}
+.zq{
+  margin-left:20rpx;
+ margin-top:20rpx;
+height:120rpx;
+width: 17%;
+background-color: #259b24;
+color: white;
+border-radius: 10rpx;
+background-attachment: fixed;
+background-size: 100% auto; 
+background-repeat: no-repeat; 
+}
+.cw{
+  margin-left:20rpx;
+ margin-top:20rpx;
+height:120rpx;
+width: 17%;
+background-color: #e51c23;
+color: white;
+border-radius: 10rpx;
+background-attachment: fixed;
+background-size: 100% auto; 
+background-repeat: no-repeat; 
+}

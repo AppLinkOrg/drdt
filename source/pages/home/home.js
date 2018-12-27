@@ -32,11 +32,19 @@ class Content extends AppBase {
 
 
   }
+  
   dati(e){
     var id = e.currentTarget.id;
    wx.navigateTo({
      url: '/pages/answer/answer?id='+id,
    })
+
+  }
+  cuoti(e) {
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/error/error?id=' + id,
+    })
 
   }
 }
@@ -46,4 +54,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.gotoCat = content.gotoCat;
 body.dati = content.dati;
+body.cuoti = content.cuoti;
 Page(body)

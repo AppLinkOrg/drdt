@@ -41,3 +41,8 @@ right:0;
 
 
 }
+.guanggao{
+
+border-radius: 10rpx;
+
+}
