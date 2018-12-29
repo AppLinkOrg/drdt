@@ -17,16 +17,18 @@
       <view class="flex-1"></view>
     </view>
 
-   <view wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx" wx:if="{{idx==xuanzhon}}">
+   <view wx:for="{{shitu}}" wx:key="k" wx:for-index="idx" wx:if="{{idx==xuanzhon}}">
     <view  class="flex-row flex-center text-center  margin-top">
 
       <view class="flex-1"></view>
-      <view class="flex-2 txt-white">0.09%</view>
+      <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{item.datilv}}%</view>
+      <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">/</view>
       <view class="flex-1"></view>
-      <view class="flex-2 txt-white">{{item.count1}}</view>
+      <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{disciplinelist[idx].count1}}</view>
+      <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">0</view>
       <view class="flex-1"></view>
-      <view class="flex-2 txt-white">{{item.count}}</view>
-
+      <view  class="flex-2 txt-white">{{disciplinelist[idx].count}}</view>
+    
       <view class="flex-1"></view>
     </view>
     <view class="flex-row flex-center text-center  ">
@@ -43,7 +45,7 @@
 
   </view>
   <view class="block2 flex-row flex-center text-center">
-    <view class=" flex-1 flex-row flex-column">
+    <view class=" flex-1 flex-row flex-column ">
       <image class='icon-30' src='{{uploadpath}}resource/{{res.cuoti}}'></image>
       <view class="txt-white margin-top-5">错题库</view>
 

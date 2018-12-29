@@ -2,38 +2,73 @@
 <view class="flex-row  flex-center text-center">
   <block wx:for="{{disciplinecat}}" wx:key="k" wx:for-index="idx">
     <view bindtap='gotoCat' style='width:33%' class="  {{xuanzhon==item.id?'fenlei':'flmr'}} " id='{{item.id}}'>{{item.name}}</view>
-
-
-
-
   </block>
 </view>
 <!-- 分类课程 -->
-<view class="flex-row flex-center text-center">
+<view class="">
   <block wx:for="{{disciplinecat}}" wx:key="k" wx:for-index="idx" wx:for-item="items">
-    <view style='width:33%' class="    " id='{{item.id}}'>
-<view class="dw " style='width:33%'>
+
+
+    <view class="  " style='width:100%'>
       <block wx:for="{{catcourselist}}" wx:key="k" wx:for-index="idx" wx:for-item="item">
-        <view class=" fenlei  {{item.id==catcourse_id?'xzkc':''}} " bindtap='kechenxz' id="{{item.id}}" style='margin-top:5rpx' wx:if="{{items.id==item.disciplinecat_id&&item.disciplinecat_id==xuanzhon}}">
-          {{item.name}}
+
+        <view class=" fenlei  {{item.id==catcourse_id?'':''}} " bindtap='kechenxz' id="{{item.id}}" style='margin-top:5rpx' wx:if="{{items.id==item.disciplinecat_id&&item.disciplinecat_id==xuanzhon}}">
+          <view class="flex-row  margin-left-50 ">
+
+            <view class=" flex-1 txt-white">{{item.name}}</view> 
+            
+            <view class="margin-right"><image class='icon-20' src='{{uploadpath}}resource/{{res.baixia}}'></image></view>
+           
+          </view>
+
         </view>
+
+
+        <block wx:if="{{itema.catcourse_id==item.id&&item.disciplinecat_id==items.id}}" wx:for="{{courselist}}" wx:key="k" wx:for-item="itema">
+
+          <view id="{{itema.id}}" bindtap='kechenzj' class="  kc  flex-row flex-center">
+            <view class="txt-bold flex-1 flex-center">《{{itema.name}}》</view>
+            <view class="h5">{{itema.count1}}/{{itema.count}}</view>
+            <image class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>
+          </view>
+
+
+          <block wx:if="{{itemb.course_id==itema.id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="itemb">
+
+
+
+            <navigator hover-class="none" url="/pages/ctselection/ctselection?id={{itemb.id}}" class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
+              <view class="h5 txt-bold">{{itemb.zhangjiehao}}</view>
+              <view class="margin-left-10 h5 txt-bold flex-1 ">{{itemb.name}}</view>
+              <view class="h5">{{itemb.count1}}/{{itemb.count}}</view>
+              <image id="{{itema.id}}" bindtap='' class='icon-25' src='{{uploadpath}}resource/{{res.	youce}}'></image>
+
+            </navigator>
+
+
+          </block>
+
+        </block>
+
+
+
       </block>
-</view>
     </view>
+
   </block>
 </view>
 
 <!-- 课程列表 -->
 
-<block wx:for="{{courselist}}"  wx:key="k" wx:for-item="items">
+<!-- <block wx:for="{{courselist}}" wx:key="k" wx:for-item="items">
 
   <view id="{{items.id}}" bindtap='kechenzj' class="  kc  flex-row flex-center">
     <view class="txt-bold flex-1 flex-center">《{{items.name}}》</view>
     <view class="h5">{{items.count1}}/{{items.count}}</view>
-    <image  class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>
+    <image class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>
   </view>
-  <block    wx:if="{{items.id==item.course_id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="item">
-    <navigator  hover-class="none" url="/pages/selection/selection?id={{item.id}}"   class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
+  <block wx:if="{{items.id==item.course_id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="item">
+    <navigator hover-class="none" url="/pages/selection/selection?id={{item.id}}" class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
       <view class="h5 txt-bold">{{item.zhangjiehao}}</view>
       <view class="margin-left-10 h5 txt-bold flex-1 ">{{item.name}}</view>
       <view class="h5">{{item.count1}}/{{item.count}}</view>
@@ -43,7 +78,7 @@
 
 
   </block>
-</block>
+</block> -->
 
 
 <!-- 没有课程时 -->

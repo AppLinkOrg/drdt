@@ -34,10 +34,7 @@ padding:20rpx;
 padding-top:30rpx;
 padding-bottom:30rpx;
 }
-.dw{
- width:100%;
-  position: fixed;
-}
+
 .xzkc{
 background-color: white;
 color: #4c556e;

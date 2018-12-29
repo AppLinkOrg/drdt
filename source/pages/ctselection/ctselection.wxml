@@ -1,0 +1,27 @@
+<view class="bg padding-20 flex-row flex-center " style='height:80rpx'>
+  <view class="flex-1"></view>
+  <view class="txt-block txt-bold"> {{disciplinetm[0].coursesct_shortname}}</view>
+ <view class="flex-1"></view>
+
+</view>
+
+<view class="flex-center " style='border:width:100%;display:flex;flex-wrap: wrap; '>
+
+  <!-- <navigator   url="/pages/questions/questions?id={{item.id}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" wx:for="{{disciplinetm}}" wx:key="k" class=" sc text-center  flex-center flex-row">
+    <view class="flex-1"></view>{{item.seq}}
+    <view class="flex-1"></view>
+  </navigator> -->
+  <block wx:for="{{disciplinetm}}" wx:key="k" wx:for-index="idx">
+ 
+    <navigator  url="/pages/ctquestions/ctquestions?id={{idx+1}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" class="sc  text-center  flex-center flex-row">
+
+
+      <view class="flex-1"></view>{{idx+1}}
+      <view class="flex-1"></view>
+
+    </navigator>
+</block>
+
+
+
+</view>

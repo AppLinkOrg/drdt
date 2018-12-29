@@ -1,10 +1,9 @@
 <view class="bg padding-20 flex-row flex-center " style='height:120rpx'>
-  <view  bindtap='shouye' class=' flex-row flex-column'>
+  <view bindtap='shouye' class=' flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.shouye}}'></image>
     <view class=' margin-top-5'>首页</view>
   </view>
-  <view class="txt-block flex-1  text-center txt-bold">{{disciplinetm[0].coursesct_shortname}}
-  </view>
+  <view class="txt-block flex-1  text-center txt-bold"> {{disciplinetm[0].coursesct_shortname}}</view>
 
   <view bindtap='xuanti' class='   flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.xuanti}}'></image>
@@ -14,10 +13,10 @@
 
 </view>
 
-<swiper  bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
-  <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k">
+<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
+  <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k" wx:for-index="idx">
     <view class="padding-20 txt-black">
-      {{item.seq}}、{{item.title}}
+      {{idx+1}}、{{item.title}}
     </view>
     <view wx:if="{{item.isanwser==''}}">
 
@@ -147,13 +146,20 @@
       <view class="flex-row  zjguanggao " style='margin-top:30rpx;height:250rpx'>
 
       </view>
-      <view class="padding-20 ">
+      <view class="padding-20">
         <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
         <view class="margin-top-20 txt-black">答案解析:</view>
         <view class="margin-top-20 txt-black ">
           <text class="user-motto" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
       </view>
 
+      <view class="flex-row  " style=''>
+        <view class="flex-1"></view>
+        <view class="txt-black h4 tjdn" bindtap='scbt' data-daan="{{item.anwser}}" data-id="{{item.id}}">删除本题</view>
+        <view class="flex-1"></view>
+      </view>
+
     </view>
+
   </swiper-item>
 </swiper>

@@ -15,7 +15,7 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new DisciplineApi();
-    api.disciplinetm({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
+    api.disciplinetm1({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
 
       this.Base.setMyData({ disciplinetm, tmid: this.Base.options.id - 1 });
 
@@ -35,24 +35,26 @@ class Content extends AppBase {
         yc: false
       })
       var api = new DisciplineApi();
-      api.addquestionjl({
+      api.addctquestionjl({
         question_id: e.currentTarget.dataset.id, coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id,
         member_id: this.Base.getMyData().memberinfo.id, anwser: xz
       }, (hd) => {
         if (xz != e.currentTarget.dataset.daan) {
 
-          api.addwrongquestion({ member_id: this.Base.getMyData().memberinfo.id, question_id: e.currentTarget.dataset.id,
-            coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id }, () => {
+          // api.addwrongquestion({
+          //   member_id: this.Base.getMyData().memberinfo.id, question_id: e.currentTarget.dataset.id,
+          //   coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id
+          // }, () => {
 
 
 
-          })
+          // })
         }
 
 
-        api.disciplinetm({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
+        api.disciplinetm1({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
 
-          this.Base.setMyData({ disciplinetm, xz: null, yc: null });
+          this.Base.setMyData({ disciplinetm, tmid: this.Base.options.id - 1 });
 
         })
 
@@ -80,6 +82,35 @@ class Content extends AppBase {
 
     this.Base.setMyData({ xz: null });
   }
+  scbt(e){
+    
+      var that = this;
+      wx.showModal({
+
+        content: '是否确定把本题从错题库中删除',
+
+        success: function (res) {
+          if (res.confirm) {
+            var api = new DisciplineApi();
+            api.delwrongquestion({
+              
+               member_id: that.Base.getMyData().memberinfo.id, 
+              coursesct_id: that.Base.options.id, question_id: e.currentTarget.dataset.id }, (del) => {
+              that.onMyShow();
+
+
+            })
+
+
+          } else {
+
+          }
+        }
+      })
+
+    
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -90,4 +121,5 @@ body.tjdn = content.tjdn;
 body.xuanti = content.xuanti;
 body.shouye = content.shouye;
 body.huadon = content.huadon;
+body.scbt = content.scbt;
 Page(body)

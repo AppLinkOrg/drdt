@@ -16,10 +16,10 @@ class Content extends AppBase {
     var api = new DisciplineApi();
     api.disciplinecat({ discipline_id: this.Base.options.id }, (disciplinecat) => {
       this.Base.setMyData({ disciplinecat, xuanzhon: disciplinecat[0].id, isf: false });
-    })
-    api.catcourse({}, (catcourselist) => {
+   
+      api.catcourse1({ disciplinecat_id: disciplinecat[0].id}, (catcourselist) => {
       this.Base.setMyData({ catcourselist, courselist: [], catcourse_id: null, coursesctlist: [] });
-
+    })
     })
   }
   onMyShow() {
@@ -31,14 +31,14 @@ class Content extends AppBase {
     console.log(666666666);
     var id = e.currentTarget.id;
 
-    if (that.Base.getMyData().xuanzhon == id && that.Base.getMyData().isf == false) {
+    if (that.Base.getMyData().xuanzhon == id) {
       var isf = this.Base.getMyData().isf;
-      this.Base.setMyData({ catcourselist: [], isf: !isf });
+      this.Base.setMyData({ catcourselist: [], xuanzhon: null, catcourse_id: null, course_id: null,courselist:[] });
 
     }
     else {
       var isf = this.Base.getMyData().isf;
-      this.Base.setMyData({ "xuanzhon": id, isf: !isf });
+      this.Base.setMyData({ "xuanzhon": id, courselist: [], catcourse_id: null, course_id: null,  });
       that.catcourse(e);
     }
   }
@@ -46,35 +46,43 @@ class Content extends AppBase {
 
     var tab = e.currentTarget.id;
     var api = new DisciplineApi();
-    api.catcourse({}, (catcourselist) => {
+    api.catcourse1({ disciplinecat_id: this.Base.getMyData().xuanzhon}, (catcourselist) => {
       this.Base.setMyData({ catcourselist, coursesctlist: [], });
 
     })
   }
   kechenxz(e) {
+    var that = this;
     var tab = e.currentTarget.id;
+    
+    if (tab == that.Base.getMyData().catcourse_id ){
+     
+      this.Base.setMyData({ courselist: [], catcourse_id: null,  });
+
+    }
+    else{
     var api = new DisciplineApi();
-    api.course({ catcourse_id: tab }, (courselist) => {
-      this.Base.setMyData({ courselist, catcourselist: [], catcourse_id: tab, isf: true });
+    api.course1({ catcourse_id: tab }, (courselist) => {
+      this.Base.setMyData({ courselist,catcourse_id: tab, });
 
     })
-
+    }
 
   }
   kechenzj(e) {
     var that = this;
 
     var tab = e.currentTarget.id;
-
+ 
     console.log(that.Base.getMyData().course_id);
-    if (tab == that.Base.getMyData().course_id) {
+    if (tab == that.Base.getMyData().course_id ) {
 
-      this.Base.setMyData({ coursesctlist: [], course_id: null, catcourselist: [], });
+      this.Base.setMyData({ coursesctlist: [], course_id: null,  });
     }
     else {
       var api = new DisciplineApi();
-      api.coursesctlist({ course_id: tab }, (coursesctlist) => {
-        this.Base.setMyData({ coursesctlist, course_id: tab, catcourselist: [], });
+      api.coursesctlist1({ course_id: tab }, (coursesctlist) => {
+        this.Base.setMyData({ coursesctlist, course_id: tab,  });
 
 
       })

@@ -16,14 +16,34 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new InstApi();
+    var shitu=[];
     api.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     })
     api.disciplinelist({}, (disciplinelist)=>{
-      this.Base.setMyData({ disciplinelist });
+
+      api.statistics({ member_id: this.Base.getMyData().memberinfo.id}, (statistics) => {
+        this.Base.setMyData({ statistics });
+
+     
+      for (var i = 0; i < disciplinelist.length;i++){
+        shitu[i]="";
+        for (var j = 0; j < statistics.length;j++){
+          if (disciplinelist[i].id == statistics[j].discipline_id ){
+
+            shitu[i] = statistics[j];
+            shitu[i].datilv = (shitu[i].rightanwsercoun / shitu[i].anwsercount * 100).toFixed(2);
+
+          }
 
 
+        }
+         
+      }
+        this.Base.setMyData({ shitu, disciplinelist });
+      })
     })
+   
 
   }
   gotoCat(e){

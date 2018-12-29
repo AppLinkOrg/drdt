@@ -7,7 +7,9 @@ background-color: #e5e5e5;
   background-color: white;
 }
 .gd{
-height: calc( 100vh - 160rpx )
+
+height: calc( 100vh )
+
 }
 .tjdn{
 padding-top:15rpx;
