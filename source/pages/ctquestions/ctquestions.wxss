@@ -8,7 +8,7 @@ background-color: #e5e5e5;
 }
 .gd{
 
-height: calc( 100vh )
+height: calc( 100vh - 160rpx )
 
 }
 .tjdn{

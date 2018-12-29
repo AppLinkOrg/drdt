@@ -137,6 +137,38 @@ export class DisciplineApi{
         })
     }
 
+    catcourse1(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'discipline/catcourse1',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     course(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -457,7 +489,7 @@ export class DisciplineApi{
         })
     }
 
-    catcourse1(json, callback, showLoading = true) {
+    delctquestionjl(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -466,7 +498,7 @@ export class DisciplineApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'discipline/catcourse1',
+            url: ApiConfig.GetApiUrl() + 'discipline/delctquestionjl',
             data: json,
             method: 'POST',
             dataType: 'json',

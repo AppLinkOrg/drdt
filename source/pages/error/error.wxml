@@ -24,23 +24,23 @@
         </view>
 
 
-        <block wx:if="{{itema.catcourse_id==item.id&&item.disciplinecat_id==items.id}}" wx:for="{{courselist}}" wx:key="k" wx:for-item="itema">
+        <block wx:if="{{itema.catcourse_id==item.id&&item.disciplinecat_id==items.id&&itema.count1!=0}}" wx:for="{{courselist}}" wx:key="k" wx:for-item="itema">
 
           <view id="{{itema.id}}" bindtap='kechenzj' class="  kc  flex-row flex-center">
             <view class="txt-bold flex-1 flex-center">《{{itema.name}}》</view>
-            <view class="h5">{{itema.count1}}/{{itema.count}}</view>
+            <view class="h5 txt-bold">{{itema.count1}}</view>
             <image class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>
           </view>
 
 
-          <block wx:if="{{itemb.course_id==itema.id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="itemb">
+          <block wx:if="{{itemb.course_id==itema.id&&itemb.count1!=0}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="itemb">
 
 
 
             <navigator hover-class="none" url="/pages/ctselection/ctselection?id={{itemb.id}}" class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
               <view class="h5 txt-bold">{{itemb.zhangjiehao}}</view>
               <view class="margin-left-10 h5 txt-bold flex-1 ">{{itemb.name}}</view>
-              <view class="h5">{{itemb.count1}}/{{itemb.count}}</view>
+              <view class="h5 txt-bold">{{itemb.count1}}</view>
               <image id="{{itema.id}}" bindtap='' class='icon-25' src='{{uploadpath}}resource/{{res.	youce}}'></image>
 
             </navigator>

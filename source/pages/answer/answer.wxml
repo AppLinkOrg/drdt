@@ -9,12 +9,12 @@
   </block>
 </view>
 <!-- 分类课程 -->
-<view class="flex-row flex-center text-center">
+<view class="flex-row  flex-center text-center">
   <block wx:for="{{disciplinecat}}" wx:key="k" wx:for-index="idx" wx:for-item="items">
     <view style='width:33%' class="    " id='{{item.id}}'>
 <view class="dw " style='width:33%'>
       <block wx:for="{{catcourselist}}" wx:key="k" wx:for-index="idx" wx:for-item="item">
-        <view class=" fenlei  {{item.id==catcourse_id?'xzkc':''}} " bindtap='kechenxz' id="{{item.id}}" style='margin-top:5rpx' wx:if="{{items.id==item.disciplinecat_id&&item.disciplinecat_id==xuanzhon}}">
+        <view class=" fenlei   {{item.id==catcourse_id?'xzkc':''}} " bindtap='kechenxz' id="{{item.id}}" style='margin-top:5rpx' wx:if="{{items.id==item.disciplinecat_id&&item.disciplinecat_id==xuanzhon}}">
           {{item.name}}
         </view>
       </block>
@@ -27,7 +27,7 @@
 
 <block wx:for="{{courselist}}"  wx:key="k" wx:for-item="items">
 
-  <view id="{{items.id}}" bindtap='kechenzj' class="  kc  flex-row flex-center">
+  <view id="{{items.id}}" bindtap='kechenzj' class="   kc  flex-row flex-center">
     <view class="txt-bold flex-1 flex-center">《{{items.name}}》</view>
     <view class="h5">{{items.count1}}/{{items.count}}</view>
     <image  class='icon-25' src='{{uploadpath}}resource/{{res.xia}}'></image>

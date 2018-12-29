@@ -29,7 +29,7 @@ color: white;
 
 
 background-color: white;
-border-bottom:1px solid #fafafa;
+border-bottom:1px solid #D5D5D5;
 padding:20rpx;
 padding-top:30rpx;
 padding-bottom:30rpx;

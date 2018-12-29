@@ -12,6 +12,15 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
   }
+  onUnload(){
+
+    var api = new DisciplineApi();
+    api.delctquestionjl({member_id:this.Base.getMyData().memberinfo.id},()=>{
+
+
+
+    })
+  }
   onMyShow() {
     var that = this;
     var api = new DisciplineApi();
@@ -20,6 +29,14 @@ class Content extends AppBase {
       this.Base.setMyData({ disciplinetm, tmid: this.Base.options.id - 1 });
 
     })
+
+    var api = new DisciplineApi();
+    // api.delwrongquestion({
+
+    //   member_id: that.Base.getMyData().memberinfo.id,
+    //   coursesct_id: that.Base.options.coursesct_id, question_id: e.currentTarget.dataset.id
+    // }, (del) => {
+    // })
   }
   radioChange(e) {
     console.log(e);
@@ -54,7 +71,7 @@ class Content extends AppBase {
 
         api.disciplinetm1({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
 
-          this.Base.setMyData({ disciplinetm, tmid: this.Base.options.id - 1 });
+          this.Base.setMyData({ disciplinetm });
 
         })
 
@@ -81,6 +98,21 @@ class Content extends AppBase {
   huadon() {
 
     this.Base.setMyData({ xz: null });
+
+    var api = new DisciplineApi();
+    api.delctquestionjl({ member_id: this.Base.getMyData().memberinfo.id }, () => {
+
+
+
+    })
+    api.disciplinetm1({ coursesct_id: this.Base.options.coursesct_id, }, (disciplinetm) => {
+
+      this.Base.setMyData({ disciplinetm });
+
+    })
+
+
+
   }
   scbt(e){
     
@@ -95,12 +127,27 @@ class Content extends AppBase {
             api.delwrongquestion({
               
                member_id: that.Base.getMyData().memberinfo.id, 
-              coursesct_id: that.Base.options.id, question_id: e.currentTarget.dataset.id }, (del) => {
-              that.onMyShow();
+              coursesct_id: that.Base.options.coursesct_id, question_id: e.currentTarget.dataset.id }, (del) => {
+              
+                if (that.Base.getMyData().disciplinetm.length==1){
+
+                  wx.navigateBack({
+delta:2
+                  })
+                      
+
+                }
+                else{
+                  wx.navigateBack({
+
+                  })
+
+                }
+
 
 
             })
-
+            
 
           } else {
 

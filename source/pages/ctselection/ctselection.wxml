@@ -16,7 +16,9 @@
     <navigator  url="/pages/ctquestions/ctquestions?id={{idx+1}}&&coursesct_id={{disciplinetm[0].coursesct_id}}" class="sc  text-center  flex-center flex-row">
 
 
-      <view class="flex-1"></view>{{idx+1}}
+      <view class="flex-1"></view>{{item.seq}}
+
+      
       <view class="flex-1"></view>
 
     </navigator>

@@ -39,14 +39,31 @@ class Content extends AppBase {
         question_id: e.currentTarget.dataset.id, coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id,
         member_id: this.Base.getMyData().memberinfo.id, anwser: xz
       }, (hd) => {
+
         if (xz != e.currentTarget.dataset.daan) {
 
-          api.addwrongquestion({ member_id: this.Base.getMyData().memberinfo.id, question_id: e.currentTarget.dataset.id,
-            coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id }, () => {
+          api.wrongquestion({
+            member_id: this.Base.getMyData().memberinfo.id, question_id: e.currentTarget.dataset.id,
+            coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id
+          }, (cx) => {
+            console.log(this.Base.getMyData().memberinfo.id, e.currentTarget.dataset.id, this.Base.getMyData().disciplinetm[0].coursesct_id);
+            if (cx.length == 0) {
+              api.addwrongquestion({
+                member_id: this.Base.getMyData().memberinfo.id, question_id: e.currentTarget.dataset.id,
+                coursesct_id: this.Base.getMyData().disciplinetm[0].coursesct_id
+              }, () => {
 
 
+
+              })
+
+
+            }
 
           })
+
+
+
         }
 
 
@@ -77,8 +94,11 @@ class Content extends AppBase {
 
   }
   huadon() {
-
     this.Base.setMyData({ xz: null });
+
+     
+
+
   }
 }
 var content = new Content();

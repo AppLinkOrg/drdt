@@ -7,7 +7,7 @@
 </swiper>
 <view class="padding-20 ">
 
-  <view class="block1 ">
+  <view wx:if="{{disciplinelist}}" class="block1 ">
     <view class="flex-row flex-center text-center  margin-top-20">
 
       <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
@@ -17,34 +17,34 @@
       <view class="flex-1"></view>
     </view>
 
-   <view wx:for="{{shitu}}" wx:key="k" wx:for-index="idx" wx:if="{{idx==xuanzhon}}">
-    <view  class="flex-row flex-center text-center  margin-top">
+    <view wx:for="{{shitu}}" wx:key="k" wx:for-index="idx" wx:if="{{idx==xuanzhon}}">
+      <view class="flex-row flex-center text-center  margin-top">
 
-      <view class="flex-1"></view>
-      <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{item.datilv}}%</view>
-      <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">/</view>
-      <view class="flex-1"></view>
-      <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{disciplinelist[idx].count1}}</view>
-      <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">0</view>
-      <view class="flex-1"></view>
-      <view  class="flex-2 txt-white">{{disciplinelist[idx].count}}</view>
-    
-      <view class="flex-1"></view>
+        <view class="flex-1"></view>
+        <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{item.datilv}}%</view>
+        <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">/</view>
+        <view class="flex-1"></view>
+        <view wx:if="{{item.anwsercount}}" class="flex-2 txt-white">{{disciplinelist[idx].count1}}</view>
+        <view wx:if="{{!item.anwsercount}}" class="flex-2 txt-white">0</view>
+        <view class="flex-1"></view>
+        <view class="flex-2 txt-white">{{disciplinelist[idx].count}}</view>
+
+        <view class="flex-1"></view>
+      </view>
+      <view class="flex-row flex-center text-center  ">
+        <view class="flex-1"></view>
+        <view class="flex-2 txt-white">正确率</view>
+        <view class="flex-1"></view>
+        <view class="flex-2 txt-white">已答题</view>
+        <view class="flex-1"></view>
+        <view class="flex-2 txt-white">总题数</view>
+        <view class="flex-1"></view>
+      </view>
     </view>
-    <view class="flex-row flex-center text-center  ">
-      <view class="flex-1"></view>
-      <view class="flex-2 txt-white">正确率</view>
-      <view class="flex-1"></view>
-      <view class="flex-2 txt-white">已答题</view>
-      <view class="flex-1"></view>
-      <view class="flex-2 txt-white">总题数</view>
-      <view class="flex-1"></view>
-    </view>
-</view>
 
 
   </view>
-  <view class="block2 flex-row flex-center text-center">
+  <view  wx:if="{{disciplinelist}}" class="block2 flex-row flex-center text-center">
     <view class=" flex-1 flex-row flex-column ">
       <image class='icon-30' src='{{uploadpath}}resource/{{res.cuoti}}'></image>
       <view class="txt-white margin-top-5">错题库</view>
@@ -54,7 +54,7 @@
     <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
       <image wx:if="{{idx==0}}" class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
       <image wx:if="{{idx!=0}}" class='icon' src='{{uploadpath}}resource/{{res.fenge}}'></image>
-      <view  id="{{item.id}}" bindtap="cuoti"    class=" flex-1 flex-row flex-column">
+      <view id="{{item.id}}" bindtap="cuoti" class=" flex-1 flex-row flex-column">
         <image class='icon-30' src='{{uploadpath}}discipline/{{item.disciplineimg}}'></image>
         <view class="txt-white margin-top-5">{{item.summary}}</view>
 
@@ -64,16 +64,16 @@
 
 
   </view>
-  <view class="block2 flex-row flex-center text-center">
+  <view wx:if="{{disciplinelist}}" class="block2 flex-row flex-center text-center">
     <view class=" flex-1 flex-row flex-column">
       <image class='icon-30' src='{{uploadpath}}resource/{{res.dati}}'></image>
       <view class="txt-white margin-top-5">答题</view>
 
     </view>
-    <block  wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
+    <block wx:for="{{disciplinelist}}" wx:key="k" wx:for-index="idx">
       <image wx:if="{{idx==0}}" class='icon' src='{{uploadpath}}resource/{{res.you}}'></image>
       <image wx:if="{{idx!=0}}" class='icon' src='{{uploadpath}}resource/{{res.fenge}}'></image>
-      <view id="{{item.id}}"  bindtap="dati" class=" flex-1 flex-row flex-column">
+      <view id="{{item.id}}" bindtap="dati" class=" flex-1 flex-row flex-column">
         <image class='icon-30' src='{{uploadpath}}discipline/{{item.disciplineimg}}'></image>
         <view class="txt-white margin-top-5">{{item.summary}}</view>
 
@@ -85,7 +85,12 @@
 
 
 </view>
-<view class="padding-20 guanggao" style='width：200rpx;height:200rpx'><official-account></official-account></view>
-<navigator hover-class="none" url="/pages/wode/wode" class="wode padding-20">
+
+<navigator wx:if="{{disciplinelist}}" hover-class="none" url="/pages/wode/wode" class="wode padding-20 flex-row">
+  <view class="flex-1"></view>
   <image class='icon-30' src='{{uploadpath}}resource/{{res.wode}}'></image>
 </navigator>
+<official-account style="height:600rpx"></official-account>
+
+
+<ad class="margin-top-10" unit-id="adunit-04f170483ea78d1c"></ad>

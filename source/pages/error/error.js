@@ -24,7 +24,23 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var id = this.Base.getMyData().course_id;
+    var id1 = this.Base.getMyData().catcourse_id;
+    if (id != undefined && id1 != undefined) {
+      var api = new DisciplineApi();
+      api.course1({ catcourse_id: id1 }, (courselist) => {
+        this.Base.setMyData({ courselist,  catcourse_id: id1, isf: true });
 
+      })
+      api.coursesctlist1({ course_id: id }, (coursesctlist) => {
+        this.Base.setMyData({ coursesctlist, course_id: id,  });
+
+
+      })
+
+
+
+    }
   }
   gotoCat(e) {
     var that = this;

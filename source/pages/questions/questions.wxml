@@ -1,5 +1,5 @@
 <view class="bg padding-20 flex-row flex-center " style='height:120rpx'>
-  <view  bindtap='shouye' class=' flex-row flex-column'>
+  <view bindtap='shouye' class=' flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.shouye}}'></image>
     <view class=' margin-top-5'>首页</view>
   </view>
@@ -14,7 +14,7 @@
 
 </view>
 
-<swiper  bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
+<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
   <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k">
     <view class="padding-20 txt-black">
       {{item.seq}}、{{item.title}}
@@ -68,7 +68,10 @@
         <view wx:if="{{yc==fasle||yc==null}}" class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
         <view class="flex-1"></view>
       </view>
-      <view class="guangao " style='width:100%;height:250rpx;'></view>
+       <ad class="guangao" unit-id="adunit-f0b14ce2b342d8bf"></ad> 
+      <!-- <view class="guangao " style='width:100%;height:250rpx;'>
+        <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
+      </view> -->
     </view>
     <view wx:if="{{item.isanwser!=''}}">
       <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
@@ -144,8 +147,8 @@
         </view>
       </radio-group>
 
-      <view class="flex-row  zjguanggao " style='margin-top:30rpx;height:250rpx'>
-
+      <view class="flex-row  zjguanggao " style='margin-top:30rpx;'>
+ <ad unit-id="adunit-f0b14ce2b342d8bf"></ad> 
       </view>
       <view class="padding-20 ">
         <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
