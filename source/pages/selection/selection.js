@@ -26,7 +26,7 @@ class Content extends AppBase {
     var that = this;
     wx.showModal({
 
-      content: '是否确定重做章节下所有题',
+      content: '是否确定重做本章节下的所有题',
 
       success: function (res) {
         if (res.confirm) {
@@ -45,10 +45,16 @@ class Content extends AppBase {
     })
 
   }
+  zhangjie(){
+    wx.navigateBack({
+      delta: 2
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.chonzuo = content.chonzuo;
+body.zhangjie=content.zhangjie;
 Page(body)

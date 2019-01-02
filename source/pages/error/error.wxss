@@ -10,6 +10,15 @@ background-color: #fafafa;
  padding-bottom:40rpx;
 
 }
+text{
+
+overflow:hidden; 
+
+text-overflow:ellipsis;
+
+white-space:nowrap;
+
+}
 .fenlei{
 
 background-color:#4c556e;

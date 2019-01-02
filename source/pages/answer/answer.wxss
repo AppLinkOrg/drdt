@@ -43,3 +43,12 @@ background-color: white;
 color: #4c556e;
 border:1px solid #4c556e;
 }
+text{
+
+overflow:hidden; 
+
+text-overflow:ellipsis;
+
+white-space:nowrap;
+
+}

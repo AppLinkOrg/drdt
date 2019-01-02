@@ -114,6 +114,13 @@ class Content extends AppBase {
 
 
   }
+
+  zhangjie() {
+
+    wx.navigateBack({
+      delta: 2
+    })
+  }
   scbt(e){
     
       var that = this;
@@ -169,4 +176,5 @@ body.xuanti = content.xuanti;
 body.shouye = content.shouye;
 body.huadon = content.huadon;
 body.scbt = content.scbt;
+body.zhangjie = content.zhangjie;
 Page(body)

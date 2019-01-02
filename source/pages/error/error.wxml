@@ -39,7 +39,7 @@
 
             <navigator hover-class="none" url="/pages/ctselection/ctselection?id={{itemb.id}}" class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
               <view class="h5 txt-bold">{{itemb.zhangjiehao}}</view>
-              <view class="margin-left-10 h5 txt-bold flex-1 ">{{itemb.name}}</view>
+              <text class="margin-left-10 h5 txt-bold flex-1 ">{{itemb.name}}</text>
               <view class="h5 txt-bold">{{itemb.count1}}</view>
               <image id="{{itema.id}}" bindtap='' class='icon-25' src='{{uploadpath}}resource/{{res.	youce}}'></image>
 

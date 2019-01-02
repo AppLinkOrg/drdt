@@ -1,6 +1,6 @@
-<view class="bg padding-20 flex-row flex-center " style='height:80rpx'>
+<view class="bg padding-20 flex-row flex-center text-center" style='height:80rpx'>
   <view class="flex-1"></view>
-  <view class="txt-block txt-bold"> {{disciplinetm[0].coursesct_shortname}}</view>
+  <text style='width:350rpx' class="   txt-block txt-bold"> {{disciplinetm[0].coursesct_shortname}}</text>
  <view class="flex-1"></view>
 
 </view>

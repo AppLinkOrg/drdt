@@ -86,6 +86,12 @@ class Content extends AppBase {
 
     })
   }
+  zhangjie() {
+
+    wx.navigateBack({
+      delta: 2
+    })
+  }
   shouye() {
 
     wx.navigateTo({
@@ -110,4 +116,5 @@ body.tjdn = content.tjdn;
 body.xuanti = content.xuanti;
 body.shouye = content.shouye;
 body.huadon = content.huadon;
+body.zhangjie = content.zhangjie;
 Page(body)

@@ -35,7 +35,7 @@
   <block    wx:if="{{items.id==item.course_id}}" wx:for="{{coursesctlist}}" wx:key='k' wx:for-item="item">
     <navigator  hover-class="none" url="/pages/selection/selection?id={{item.id}}"   class="padding-20 flex-row flex-center" style='border-bottom:1px solid #4c556e'>
       <view class="h5 txt-bold">{{item.zhangjiehao}}</view>
-      <view class="margin-left-10 h5 txt-bold flex-1 ">{{item.name}}</view>
+      <text class="margin-left-10 h5 txt-bold flex-1 ">{{item.name}}</text>
       <view class="h5">{{item.count1}}/{{item.count}}</view>
       <image id="{{items.id}}" bindtap='' class='icon-25' src='{{uploadpath}}resource/{{res.	youce}}'></image>
 

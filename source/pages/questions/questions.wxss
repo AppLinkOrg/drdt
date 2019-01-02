@@ -17,6 +17,15 @@ padding-right:40rpx;
 border:1px solid black;
 border-radius: 10rpx;
 }
+text{
+
+overflow:hidden; 
+
+text-overflow:ellipsis;
+
+white-space:nowrap;
+
+}
 
 radio .wx-radio-input{
    border-radius: 50%;/* 圆角 */
@@ -28,8 +37,16 @@ radio .wx-radio-input{
 
 .guangao{
   position:fixed;
-  bottom:0;
+  bottom:100rpx;
   background-color: #e5e5e5;
+ 
+}
+.qiehuan{
+  width:100%;
+   height:100rpx;
+   position:fixed;
+  bottom:0;
+  background-color: #4c556e;
 }
 .zjguanggao{
   background-color: #e5e5e5;

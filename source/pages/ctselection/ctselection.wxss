@@ -5,6 +5,15 @@ page{
 
   background-color: white;
 }
+text{
+
+overflow:hidden; 
+
+text-overflow:ellipsis;
+
+white-space:nowrap;
+
+}
 
 .sc{
  margin-left:20rpx;

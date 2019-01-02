@@ -3,7 +3,14 @@
     <image class='icon-25' src='{{uploadpath}}resource/{{res.shouye}}'></image>
     <view class=' margin-top-5'>首页</view>
   </view>
-  <view class="txt-block flex-1  text-center txt-bold"> {{disciplinetm[0].coursesct_shortname}}</view>
+  <view class="flex-1"></view>
+  <text style='width:300rpx' class="txt-block     text-center txt-bold" >{{disciplinetm[0].coursesct_shortname}}
+  </text> 
+<view class="flex-1"></view>
+  <view bindtap='zhangjie' class=' padding-right-20 flex-row flex-column'>
+    <image class='icon-25' src='{{uploadpath}}resource/{{res.zhanjie}}'></image>
+    <view class=' margin-top-5'>章节</view>
+  </view>
 
   <view bindtap='xuanti' class='   flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.xuanti}}'></image>
@@ -16,7 +23,7 @@
 <swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
   <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k" wx:for-index="idx">
     <view class="padding-20 txt-black">
-      {{idx+1}}、{{item.title}}
+      {{item.seq}}.{{item.title}}
     </view>
     <view wx:if="{{item.isanwser==''}}">
 
@@ -25,7 +32,7 @@
         <view class="flex-row  txt-black">
           <image wx:if="{{xz!='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
           <image wx:if="{{xz=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">A、</view>
+          <view class="margin-left-10">A.</view>
           <view class="flex-1">
             {{item.option_a}}</view>
         </view>
@@ -35,7 +42,7 @@
         <view class="flex-row  txt-black">
           <image wx:if="{{xz!='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
           <image wx:if="{{xz=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">B、</view>
+          <view class="margin-left-10">B.</view>
           <view class="flex-1">
             {{item.option_b}}</view>
         </view>
@@ -45,7 +52,7 @@
         <view class="flex-row  txt-black">
           <image wx:if="{{xz!='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
           <image wx:if="{{xz=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">C、</view>
+          <view class="margin-left-10">C.</view>
           <view class="flex-1">
             {{item.option_c}}</view>
         </view>
@@ -55,7 +62,7 @@
         <view class="flex-row  txt-black">
           <image wx:if="{{xz!='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
           <image wx:if="{{xz=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">D、</view>
+          <view class="margin-left-10">D.</view>
           <view class="flex-1">
             {{item.option_d}}</view>
         </view>
@@ -70,9 +77,14 @@
          <view  class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
         <view class="flex-1"></view>
       </view>
-      <view class="guangao " style='width:100%;height:250rpx;'>
-         <ad unit-id="adunit-f0b14ce2b342d8bf"></ad> 
-      </view>
+      
+         <ad class="guangao " unit-id="adunit-f0b14ce2b342d8bf"></ad> 
+     
+      <view class="qiehuan  flex-center flex-row ">
+<view class="flex-1 text-center txt-white">向右滑/上一题</view>
+<view class=" text-center txt-white" >|</view>
+<view class="flex-1 text-center txt-white">向左滑/下一题</view>
+</view>
     </view>
     <view wx:if="{{item.isanwser!=''}}">
       <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
@@ -89,7 +101,7 @@
             <view>
               <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
             </view>
-            <view class="margin-left-10">A、</view>
+            <view class="margin-left-10">A.</view>
             <view class="flex-1">
               {{item.option_a}}</view>
           </view>
@@ -107,7 +119,7 @@
             <view>
               <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
             </view>
-            <view class="margin-left-10">B、</view>
+            <view class="margin-left-10">B.</view>
             <view class="flex-1">
               {{item.option_b}}</view>
           </view>
@@ -124,7 +136,7 @@
             <view>
               <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
             </view>
-            <view class="margin-left-10">C、</view>
+            <view class="margin-left-10">C.</view>
             <view class="flex-1">
               {{item.option_c}}</view>
           </view>
@@ -141,7 +153,7 @@
             <view>
               <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
             </view>
-            <view class="margin-left-10">D、</view>
+            <view class="margin-left-10">D.</view>
             <view class="flex-1">
               {{item.option_d}}</view>
           </view>
@@ -163,7 +175,11 @@
         <view class="txt-black h4 tjdn" bindtap='scbt' data-daan="{{item.anwser}}" data-id="{{item.id}}">删除本题</view>
         <view class="flex-1"></view>
       </view>
-
+<view class="qiehuan  flex-center flex-row ">
+<view class="flex-1 text-center txt-white">向右滑/上一题</view>
+<view class=" text-center txt-white" >|</view>
+<view class="flex-1 text-center txt-white">向左滑/下一题</view>
+</view>
     </view>
 
   </swiper-item>
