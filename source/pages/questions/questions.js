@@ -145,7 +145,7 @@ class Content extends AppBase {
   huadon(e) {
     this.Base.setMyData({ xz: null });
     this.Base.setMyData({ tmid: e.detail.current });
-    this.onReady1();
+    // this.onReady1();
   }
   syt() {
     var id = this.Base.getMyData().tmid;
