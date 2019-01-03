@@ -1,7 +1,7 @@
 <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='height:300rpx;'>
   <swiper-item wx:key="k" wx:for="{{indexbanner}}" wx:key="k">
     <view>
-      <image bindtap='viewPhoto' id="{{uploadpath}}indexbanner/{{item.img}}" src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:300rpx;' mode="aspectFill"></image>
+      <image bindtap='toother' data-id="{{item.appid}}" id="{{uploadpath}}indexbanner/{{item.img}}" src='{{uploadpath}}indexbanner/{{item.img}}' style='width:100vw;height:300rpx;' mode="aspectFill"></image>
     </view>
   </swiper-item>
 </swiper>

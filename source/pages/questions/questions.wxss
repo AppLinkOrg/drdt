@@ -1,13 +1,15 @@
 page{
+height: 100%;
 
 background-color: #e5e5e5;
 
 }
+
 .bg{
   background-color: white;
 }
 .gd{
-height: calc( 100vh - 160rpx )
+
 }
 .tjdn{
 padding-top:15rpx;
@@ -17,7 +19,7 @@ padding-right:40rpx;
 border:1px solid black;
 border-radius: 10rpx;
 }
-text{
+/* text{
 
 overflow:hidden; 
 
@@ -25,7 +27,7 @@ text-overflow:ellipsis;
 
 white-space:nowrap;
 
-}
+} */
 
 radio .wx-radio-input{
    border-radius: 50%;/* 圆角 */
@@ -43,6 +45,8 @@ radio .wx-radio-input{
 }
 .qiehuan{
   width:100%;
+
+   margin-top:1000rpx;
    height:100rpx;
    position:fixed;
   bottom:0;

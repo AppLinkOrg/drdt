@@ -1,12 +1,12 @@
-<view class="bg padding-20 flex-row flex-center " style='height:120rpx'>
+<view class="bg padding-20 flex-row flex-center "  style='height:120rpx'>
   <view bindtap='shouye' class=' flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.shouye}}'></image>
     <view class=' margin-top-5'>首页</view>
   </view>
   <view class="flex-1"></view>
-  <text style='width:300rpx' class="txt-block     text-center txt-bold" >{{disciplinetm[0].coursesct_shortname}}
-  </text> 
-<view class="flex-1"></view>
+  <text style='width:300rpx' class="txt-block     text-center txt-bold">{{disciplinetm[0].coursesct_shortname}}
+  </text>
+  <view class="flex-1"></view>
   <view bindtap='zhangjie' class=' padding-right-20 flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.zhanjie}}'></image>
     <view class=' margin-top-5'>章节</view>
@@ -20,7 +20,7 @@
 
 </view>
 
-<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
+<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg  " style='margin-top:5rpx;height:100%'>
   <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k">
     <view class="padding-20 txt-black">
       {{item.seq}}.{{item.title}}
@@ -74,13 +74,13 @@
         <view wx:if="{{yc==fasle||yc==null}}" class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
         <view class="flex-1"></view>
       </view>
-       <ad class="guangao" unit-id="adunit-f0b14ce2b342d8bf"></ad> 
-<view class="qiehuan  flex-center flex-row ">
-<view bindtap='syt' class="flex-1 text-center txt-white">向右滑/上一题</view>
-<view class=" text-center txt-white" >|</view>
-<view bindtap='xyt' class="flex-1 text-center txt-white">向左滑/下一题</view>
-</view>
-      
+      <ad class="guangao" unit-id="adunit-f0b14ce2b342d8bf"></ad>
+      <view class="qiehuan  flex-center flex-row ">
+        <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+        <view class=" text-center txt-white">|</view>
+        <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+      </view>
+
       <!-- <view class="guangao " style='width:100%;height:250rpx;'>
         <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
       </view> -->
@@ -160,19 +160,21 @@
       </radio-group>
 
       <view class="flex-row  zjguanggao " style='margin-top:30rpx;'>
- <ad unit-id="adunit-f0b14ce2b342d8bf"></ad> 
+        <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
       </view>
       <view class="padding-20 ">
         <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
         <view class="margin-top-20 txt-black">答案解析:</view>
-        <view class="margin-top-20 txt-black ">
-          <text class="user-motto" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
+
+        
+        <view class="margin-top-20 txt-black list " id="mjltest">
+          <text class="user-motto "  decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
       </view>
-<view class="qiehuan  flex-center flex-row ">
-<view class="flex-1 text-center txt-white">向右滑/上一题</view>
-<view class=" text-center txt-white" >|</view>
-<view class="flex-1 text-center txt-white">向左滑/下一题</view>
-</view>
+      <view class="qiehuan  flex-center flex-row   " style=''>
+        <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+        <view class=" text-center txt-white">|</view>
+        <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+      </view>
     </view>
   </swiper-item>
 </swiper>

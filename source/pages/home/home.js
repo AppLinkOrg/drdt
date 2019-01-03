@@ -21,7 +21,6 @@ class Content extends AppBase {
       this.Base.setMyData({ indexbanner });
     })
     api.disciplinelist({}, (disciplinelist)=>{
-
       api.statistics({ member_id: this.Base.getMyData().memberinfo.id}, (statistics) => {
         this.Base.setMyData({ statistics });
 
@@ -67,10 +66,32 @@ class Content extends AppBase {
     })
 
   }
+  toother(e) {
+    
+    var img = e.currentTarget.id;
+    var id = e.currentTarget.dataset.id;
+    if (id != "") {
+      wx.navigateToMiniProgram({
+        appId: id,
+        path: '',
+        extraData: {
+          foo: 'bar'
+        },
+        envVersion: 'release',
+        success(res) { }
+      })
+    } else {
+      wx.previewImage({
+        urls: [img],
+      })
+    }
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
+body.toother = content.toother;
 body.onMyShow = content.onMyShow;
 body.gotoCat = content.gotoCat;
 body.dati = content.dati;

@@ -12,10 +12,10 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
   }
-  onUnload(){
+  onUnload() {
 
     var api = new DisciplineApi();
-    api.delctquestionjl({member_id:this.Base.getMyData().memberinfo.id},()=>{
+    api.delctquestionjl({ member_id: this.Base.getMyData().memberinfo.id }, () => {
 
 
 
@@ -95,9 +95,9 @@ class Content extends AppBase {
     })
 
   }
-  huadon() {
+  huadon(e) {
 
-    this.Base.setMyData({ xz: null });
+    this.Base.setMyData({ xz: null, tmid: e.detail.current  });
 
     var api = new DisciplineApi();
     api.delctquestionjl({ member_id: this.Base.getMyData().memberinfo.id }, () => {
@@ -121,48 +121,74 @@ class Content extends AppBase {
       delta: 2
     })
   }
-  scbt(e){
-    
-      var that = this;
-      wx.showModal({
+  scbt(e) {
 
-        content: '是否确定把本题从错题库中删除',
+    var that = this;
+    wx.showModal({
 
-        success: function (res) {
-          if (res.confirm) {
-            var api = new DisciplineApi();
-            api.delwrongquestion({
-              
-               member_id: that.Base.getMyData().memberinfo.id, 
-              coursesct_id: that.Base.options.coursesct_id, question_id: e.currentTarget.dataset.id }, (del) => {
-              
-                if (that.Base.getMyData().disciplinetm.length==1){
+      content: '是否确定把本题从错题库中删除',
 
-                  wx.navigateBack({
-delta:2
-                  })
-                      
+      success: function (res) {
+        if (res.confirm) {
+          var api = new DisciplineApi();
+          api.delwrongquestion({
 
-                }
-                else{
-                  wx.navigateBack({
+            member_id: that.Base.getMyData().memberinfo.id,
+            coursesct_id: that.Base.options.coursesct_id, question_id: e.currentTarget.dataset.id
+          }, (del) => {
 
-                  })
+            if (that.Base.getMyData().disciplinetm.length == 1) {
 
-                }
+              wx.navigateBack({
+                delta: 2
+              })
 
 
+            }
+            else {
+              wx.navigateBack({
 
-            })
-            
+              })
 
-          } else {
+            }
 
-          }
+
+
+          })
+
+
+        } else {
+
         }
-      })
+      }
+    })
 
-    
+
+
+  }
+  syt() {
+    var id = this.Base.getMyData().tmid;
+    console.log(111);
+    if (id == 0) {
+      this.Base.toast("已经是第一题了");
+
+    } else {
+
+      this.Base.setMyData({ tmid: id - 1 });
+    }
+
+
+  }
+  xyt() {
+    var id = this.Base.getMyData().tmid;
+    console.log(this.Base.getMyData().disciplinetm.length);
+    if (id == this.Base.getMyData().disciplinetm.length - 1) {
+      this.Base.toast("已经是最后一题了");
+
+    } else {
+
+      this.Base.setMyData({ tmid: id + 1 });
+    }
 
   }
 }
@@ -176,5 +202,7 @@ body.xuanti = content.xuanti;
 body.shouye = content.shouye;
 body.huadon = content.huadon;
 body.scbt = content.scbt;
+body.syt = content.syt;
+body.xyt = content.xyt;
 body.zhangjie = content.zhangjie;
 Page(body)

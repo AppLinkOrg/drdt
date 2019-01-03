@@ -81,9 +81,9 @@
          <ad class="guangao " unit-id="adunit-f0b14ce2b342d8bf"></ad> 
      
       <view class="qiehuan  flex-center flex-row ">
-<view class="flex-1 text-center txt-white">向右滑/上一题</view>
+<view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
 <view class=" text-center txt-white" >|</view>
-<view class="flex-1 text-center txt-white">向左滑/下一题</view>
+<view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
 </view>
     </view>
     <view wx:if="{{item.isanwser!=''}}">
@@ -176,9 +176,9 @@
         <view class="flex-1"></view>
       </view>
 <view class="qiehuan  flex-center flex-row ">
-<view class="flex-1 text-center txt-white">向右滑/上一题</view>
+<view bindtap='syt' class="  flex-1  text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
 <view class=" text-center txt-white" >|</view>
-<view class="flex-1 text-center txt-white">向左滑/下一题</view>
+<view bindtap='xyt' class=" flex-1  text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
 </view>
     </view>
 

@@ -50,7 +50,7 @@
 <block wx:if="{{courselist.length==0&&catcourse_id>0}}">
   <view class="padding-top-70 text-center">
 
-    暂时没有课程,敬请期待
+    暂时没有题目,敬请期待
 
   </view>
 </block>
