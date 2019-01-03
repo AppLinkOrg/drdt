@@ -1,4 +1,4 @@
-<view class="bg padding-20 flex-row flex-center "  style='height:120rpx'>
+<view class="bg padding-20 flex-row flex-center " style='height:120rpx'>
   <view bindtap='shouye' class=' flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.shouye}}'></image>
     <view class=' margin-top-5'>首页</view>
@@ -20,161 +20,168 @@
 
 </view>
 
-<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg  " style='margin-top:5rpx;height:100%'>
+<swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg  gd " style='margin-top:5rpx'>
+
   <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k">
-    <view class="padding-20 txt-black">
-      {{item.seq}}.{{item.title}}
-    </view>
-    <view wx:if="{{item.isanwser==''}}">
-
-      <view bindtap='radioChange' id="A" class='padding-20'>
-
-        <view class="flex-row  txt-black">
-          <image wx:if="{{xz!='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-          <image wx:if="{{xz=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">A.</view>
-          <view class="flex-1">
-            {{item.option_a}}</view>
-        </view>
-      </view>
-      <view bindtap='radioChange' id="B" class='padding-20'>
-
-        <view class="flex-row  txt-black">
-          <image wx:if="{{xz!='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-          <image wx:if="{{xz=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">B.</view>
-          <view class="flex-1">
-            {{item.option_b}}</view>
-        </view>
-      </view>
-      <view bindtap='radioChange' id="C" class='padding-20'>
-
-        <view class="flex-row  txt-black">
-          <image wx:if="{{xz!='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-          <image wx:if="{{xz=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">C.</view>
-          <view class="flex-1">
-            {{item.option_c}}</view>
-        </view>
-      </view>
-      <view bindtap='radioChange' id="D" class='padding-20'>
-
-        <view class="flex-row  txt-black">
-          <image wx:if="{{xz!='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-          <image wx:if="{{xz=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
-          <view class="margin-left-10">D.</view>
-          <view class="flex-1">
-            {{item.option_d}}</view>
-        </view>
+    <scroll-view scroll-y style='height:100%' class='white-block '>
+      <view class="padding-20 txt-black">
+        {{item.seq}}.{{item.title}}
       </view>
 
+      <view wx:if="{{item.isanwser==''}}">
 
-      <view class="flex-row " style='margin-top:100rpx'>
-        <view class="flex-1"></view>
-        <view wx:if="{{yc==fasle||yc==null}}" class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
-        <view class="flex-1"></view>
-      </view>
-      <ad class="guangao" unit-id="adunit-f0b14ce2b342d8bf"></ad>
-      <view class="qiehuan  flex-center flex-row ">
-        <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
-        <view class=" text-center txt-white">|</view>
-        <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
-      </view>
-
-      <!-- <view class="guangao " style='width:100%;height:250rpx;'>
-        <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
-      </view> -->
-    </view>
-    <view wx:if="{{item.isanwser!=''}}">
-      <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
-        <view class='padding-20'>
-
+        <view bindtap='radioChange' id="A" class='padding-20'>
 
           <view class="flex-row  txt-black">
-            <view>
-              <image wx:if="{{item.anwser!='A'&&item.isanwser!='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
-            </view>
+            <image wx:if="{{xz!='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+            <image wx:if="{{xz=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
             <view class="margin-left-10">A.</view>
             <view class="flex-1">
               {{item.option_a}}</view>
           </view>
-
-
         </view>
-        <view class='padding-20'>
+        <view bindtap='radioChange' id="B" class='padding-20'>
+
           <view class="flex-row  txt-black">
-            <view>
-              <image wx:if="{{item.anwser!='B'&&item.isanwser!='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
-            </view>
+            <image wx:if="{{xz!='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+            <image wx:if="{{xz=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
             <view class="margin-left-10">B.</view>
             <view class="flex-1">
               {{item.option_b}}</view>
           </view>
         </view>
-        <view class='padding-20'>
+        <view bindtap='radioChange' id="C" class='padding-20'>
 
           <view class="flex-row  txt-black">
-            <view>
-              <image wx:if="{{item.anwser!='C'&&item.isanwser!='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
-            </view>
+            <image wx:if="{{xz!='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+            <image wx:if="{{xz=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
             <view class="margin-left-10">C.</view>
             <view class="flex-1">
               {{item.option_c}}</view>
           </view>
         </view>
-        <view class='padding-20'>
+        <view bindtap='radioChange' id="D" class='padding-20'>
 
           <view class="flex-row  txt-black">
-            <view>
-              <image wx:if="{{item.anwser!='D'&&item.isanwser!='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser=='AD'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
-            </view>
-            <view>
-              <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
-            </view>
+            <image wx:if="{{xz!='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+            <image wx:if="{{xz=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanze}}'></image>
             <view class="margin-left-10">D.</view>
             <view class="flex-1">
               {{item.option_d}}</view>
           </view>
         </view>
-      </radio-group>
 
-      <view class="flex-row  zjguanggao " style='margin-top:30rpx;'>
+
+        <view class="flex-row " style='margin-top:100rpx'>
+          <view class="flex-1"></view>
+          <view wx:if="{{yc==fasle||yc==null}}" class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
+          <view class="flex-1"></view>
+        </view>
+        <ad class="guangao" unit-id="adunit-f0b14ce2b342d8bf"></ad>
+        <view class="qiehuan  flex-center flex-row ">
+          <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+          <view class=" text-center txt-white">|</view>
+          <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+        </view>
+
+        <!-- <view class="guangao " style='width:100%;height:250rpx;'>
         <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
+      </view> -->
       </view>
-      <view class="padding-20 ">
-        <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
-        <view class="margin-top-20 txt-black">答案解析:</view>
+      <view wx:if="{{item.isanwser!=''}}">
+        <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
+          <view class='padding-20'>
 
-        
-        <view class="margin-top-20 txt-black list " id="mjltest">
-          <text class="user-motto "  decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
+
+            <view class="flex-row  txt-black">
+              <view>
+                <image wx:if="{{item.anwser!='A'&&item.isanwser!='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='A'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
+              </view>
+              <view class="margin-left-10">A.</view>
+              <view class="flex-1">
+                {{item.option_a}}</view>
+            </view>
+
+
+          </view>
+          <view class='padding-20'>
+            <view class="flex-row  txt-black">
+              <view>
+                <image wx:if="{{item.anwser!='B'&&item.isanwser!='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='B'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
+              </view>
+              <view class="margin-left-10">B.</view>
+              <view class="flex-1">
+                {{item.option_b}}</view>
+            </view>
+          </view>
+          <view class='padding-20'>
+
+            <view class="flex-row  txt-black">
+              <view>
+                <image wx:if="{{item.anwser!='C'&&item.isanwser!='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='C'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
+              </view>
+              <view class="margin-left-10">C.</view>
+              <view class="flex-1">
+                {{item.option_c}}</view>
+            </view>
+          </view>
+          <view class='padding-20'>
+
+            <view class="flex-row  txt-black">
+              <view>
+                <image wx:if="{{item.anwser!='D'&&item.isanwser!='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.wuxuanxiang}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser=='AD'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuanduile}}'></image>
+              </view>
+              <view>
+                <image wx:if="{{item.anwser!=item.isanwser&&item.isanwser=='D'}}" class='icon-20 ' src='{{uploadpath}}resource/{{res.xuancuole}}'></image>
+              </view>
+              <view class="margin-left-10">D.</view>
+              <view class="flex-1">
+                {{item.option_d}}</view>
+            </view>
+          </view>
+        </radio-group>
+
+        <view class="flex-row  zjguanggao " style='margin-top:30rpx;'>
+          <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
+        </view>
+        <view class="padding-20 ">
+          <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
+          <view class="margin-top-20 txt-black">答案解析:</view>
+
+
+          <view class="margin-top-20 txt-black  list    " style='padding-bottom:100rpx' id="mjltest">
+            <text class="user-motto " decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
+        </view>
+
+    
+
       </view>
-      <view class="qiehuan  flex-center flex-row   " style=''>
-        <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
-        <view class=" text-center txt-white">|</view>
-        <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
-      </view>
-    </view>
+    </scroll-view>
+        <view class="qiehuan  flex-center flex-row   " style=''>
+          <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+          <view class=" text-center txt-white">|</view>
+          <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+        </view>
   </swiper-item>
 </swiper>

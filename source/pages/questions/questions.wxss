@@ -10,6 +10,8 @@ background-color: #e5e5e5;
 }
 .gd{
 
+height: calc( 100vh - 160rpx )
+
 }
 .tjdn{
 padding-top:15rpx;
@@ -46,7 +48,7 @@ radio .wx-radio-input{
 .qiehuan{
   width:100%;
 
-   margin-top:1000rpx;
+   
    height:100rpx;
    position:fixed;
   bottom:0;

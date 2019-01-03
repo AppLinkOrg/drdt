@@ -4,9 +4,9 @@
     <view class=' margin-top-5'>首页</view>
   </view>
   <view class="flex-1"></view>
-  <text style='width:300rpx' class="txt-block     text-center txt-bold" >{{disciplinetm[0].coursesct_shortname}}
-  </text> 
-<view class="flex-1"></view>
+  <text style='width:300rpx' class="txt-block     text-center txt-bold">{{disciplinetm[0].coursesct_shortname}}
+  </text>
+  <view class="flex-1"></view>
   <view bindtap='zhangjie' class=' padding-right-20 flex-row flex-column'>
     <image class='icon-25' src='{{uploadpath}}resource/{{res.zhanjie}}'></image>
     <view class=' margin-top-5'>章节</view>
@@ -22,6 +22,7 @@
 
 <swiper bindchange="huadon" current="{{tmid}}" duration="200" class="bg gd " style='margin-top:5rpx'>
   <swiper-item wx:key="k" wx:for="{{disciplinetm}}" wx:key="k" wx:for-index="idx">
+     <scroll-view scroll-y style='height:100%' class='white-block '> 
     <view class="padding-20 txt-black">
       {{item.seq}}.{{item.title}}
     </view>
@@ -71,20 +72,20 @@
 
       <view class="flex-row " style='margin-top:100rpx'>
         <view class="flex-1"></view>
-       <view class="txt-black h4 tjdn" bindtap='scbt' data-daan="{{item.anwser}}" data-id="{{item.id}}">删除本题</view>
+        <view class="txt-black h4 tjdn" bindtap='scbt' data-daan="{{item.anwser}}" data-id="{{item.id}}">删除本题</view>
         <view class="padding-20"></view>
-        
-         <view  class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
+
+        <view class="txt-black h4 tjdn" bindtap='tjdn' data-daan="{{item.anwser}}" data-id="{{item.id}}">提交答案</view>
         <view class="flex-1"></view>
       </view>
-      
-         <ad class="guangao " unit-id="adunit-f0b14ce2b342d8bf"></ad> 
-     
+
+      <ad class="guangao " unit-id="adunit-f0b14ce2b342d8bf"></ad>
+
       <view class="qiehuan  flex-center flex-row ">
-<view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
-<view class=" text-center txt-white" >|</view>
-<view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
-</view>
+        <view bindtap='syt' class="flex-1 text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+        <view class=" text-center txt-white">|</view>
+        <view bindtap='xyt' class="flex-1 text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+      </view>
     </view>
     <view wx:if="{{item.isanwser!=''}}">
       <radio-group class="radio-group" name="alert_id" bindchange="radioChange">
@@ -161,12 +162,12 @@
       </radio-group>
 
       <view class="flex-row  zjguanggao " style='margin-top:30rpx'>
-         <ad unit-id="adunit-f0b14ce2b342d8bf"></ad> 
+        <ad unit-id="adunit-f0b14ce2b342d8bf"></ad>
       </view>
       <view class="padding-20">
         <view style='color:#259b24'>正确答案:{{item.anwser}}</view>
         <view class="margin-top-20 txt-black">答案解析:</view>
-        <view class="margin-top-20 txt-black ">
+        <view class="margin-top-20 txt-black " style='padding-bottom:100rpx'>
           <text class="user-motto" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text> {{item.title_anwser}}</view>
       </view>
 
@@ -175,12 +176,14 @@
         <view class="txt-black h4 tjdn" bindtap='scbt' data-daan="{{item.anwser}}" data-id="{{item.id}}">删除本题</view>
         <view class="flex-1"></view>
       </view>
-<view class="qiehuan  flex-center flex-row ">
-<view bindtap='syt' class="  flex-1  text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
-<view class=" text-center txt-white" >|</view>
-<view bindtap='xyt' class=" flex-1  text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
-</view>
+     
+    
     </view>
-
+      </scroll-view> 
+ <view class="qiehuan  flex-center flex-row ">
+        <view bindtap='syt' class="  flex-1  text-center txt-white" style='padding:20rpx'>向右滑/上一题</view>
+        <view class=" text-center txt-white">|</view>
+        <view bindtap='xyt' class=" flex-1  text-center txt-white" style='padding:20rpx'>向左滑/下一题</view>
+      </view>
   </swiper-item>
 </swiper>

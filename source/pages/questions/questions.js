@@ -120,7 +120,7 @@ class Content extends AppBase {
       })
 
     }
-    this.onReady1();
+    // this.onReady1();
 
   }
   xuanti() {
